@@ -13,8 +13,6 @@ import com.cyster.example.service.ExampleServiceFactory;
 
 class CheckIt {
     public static void main(String[] args) {
-        System.out.println("Check");
-
         System.out.println("Classpath Entries:");
         String classpath = System.getProperty("java.class.path");
         String[] classpathEntries = classpath.split(File.pathSeparator);
@@ -71,16 +69,16 @@ class CheckIt {
 
         ServiceLoader<ExampleServiceFactory> serviceLoader = ServiceLoader.load(ExampleServiceFactory.class);
         serviceLoader.forEach(factory -> {
-            System.out.println("Found factory: " + factory.getClass().getName());
+            System.out.println("  Found Factory: " + factory.getClass().getName());
         });
 
         Optional<ExampleServiceFactory> factory = serviceLoader.findFirst();
         if (factory.isEmpty()) {
-            System.out.println("ServiceLoader found no implementation.");
+            System.out.println("  ServiceLoader found no implementation.");
             throw new IllegalStateException("No implementation of: " + ExampleServiceFactory.class.getSimpleName());
         }
 
-        System.out.println("ExampleService.doIt():");
+        System.out.println("ExampleService.doIt():\n");
         var service = factory.get().createExampleService("testing 123");
         service.doIt();
         

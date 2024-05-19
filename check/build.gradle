@@ -18,3 +18,9 @@ dependencies {
 application {
     mainClassName = 'com.cyster.check.CheckIt'
 }
+
+tasks.named('run', JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.cyster.check.CheckIt'
+    jvmArgs = ['--module-path', sourceSets.main.runtimeClasspath.asPath, '--add-modules', 'com.cyster.example']
+}
