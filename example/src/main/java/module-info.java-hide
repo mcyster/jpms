@@ -1,0 +1,4 @@
+
+module com.cyster.assistant {    
+    exports com.cyster.example.service
+}

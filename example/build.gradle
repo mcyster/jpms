@@ -1,0 +1,19 @@
+
+plugins {
+    id 'application'
+}
+
+group = 'com.cyster'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+tasks.compileJava {
+    options.compilerArgs += [
+        '--module-path', configurations.compileClasspath.asPath,
+        '--patch-module', "com.cyster.assistant=${sourceSets.main.output.asPath}"
+    ]
+}
+

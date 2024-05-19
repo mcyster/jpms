@@ -1,0 +1,20 @@
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.cyster'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':example')
+}
+
+application {
+    mainClassName = 'com.cyster.check.CheckIt'
+}
