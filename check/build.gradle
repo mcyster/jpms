@@ -3,7 +3,6 @@ plugins {
     id 'application'
 }
 
-group = 'com.cyster'
 version = '0.0.1-SNAPSHOT'
 
 dependencies {
@@ -14,8 +13,8 @@ application {
     mainClass = 'com.cyster.check.CheckIt'
 }
 
-
-// Currently have to explicitly add the module: "com.cyster.example"
+// Currently have to explicitly add the module: "com.cyster.example" 
+// Feel like I shouldn't have to do this: https://github.com/java9-modularity/gradle-modules-plugin
 
 compileJava {
     doFirst {

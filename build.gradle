@@ -1,11 +1,15 @@
 
-defaultTasks 'defaultTask'
+plugins {
+    id 'java'
+    id 'org.javamodularity.moduleplugin' version '1.8.15' apply false
+}
 
-task defaultTask(dependsOn: ':check:run')
-
-allprojects {
+subprojects {
     apply plugin: 'java'
+    apply plugin: "org.javamodularity.moduleplugin"
 
+    group = 'com.cyster'
+    
     repositories {
         mavenCentral()
     }
@@ -15,12 +19,8 @@ allprojects {
         sourceCompatibility = JavaVersion.VERSION_17
     }
         
-//    compileJava {
-//        doFirst {
-//            options.compilerArgs += [
-//                    '--module-path', classpath.asPath
-//            ]
-//            classpath = files()
-//        }
-//    }
 }
+
+defaultTasks 'defaultTask'
+
+task defaultTask(dependsOn: ':check:run')

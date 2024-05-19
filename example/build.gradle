@@ -1,12 +1,7 @@
 
-plugins {
-    id 'application'
-}
-
-group = 'com.cyster'
 version = '0.0.1-SNAPSHOT'
 
 jar {
-    archiveBaseName.set('com.cyster.example')
-    archiveVersion.set('0.0.1-SNAPSHOT')
+    archiveBaseName.set(project.group + "." + project.name)
+    archiveVersion.set(project.version)
 }
