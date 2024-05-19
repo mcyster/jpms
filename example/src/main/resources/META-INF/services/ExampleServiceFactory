@@ -1,1 +1,1 @@
-com.cyster.example.ExampleServiceImpl$Factory
+com.cyster.example.impl.ExampleServiceFactoryImpl
