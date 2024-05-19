@@ -13,13 +13,43 @@ import com.cyster.example.service.ExampleServiceFactory;
 
 class CheckIt {
     public static void main(String[] args) {
+
+    	//printClassPathEntries();
+    	//printClassPath();
+        //printResources();
+        //printModules();
+        
+        System.out.println("Load ExampleServiceFactory:");
+
+        ServiceLoader<ExampleServiceFactory> serviceLoader = ServiceLoader.load(ExampleServiceFactory.class);
+        serviceLoader.forEach(factory -> {
+            System.out.println("  Found Factory: " + factory.getClass().getName());
+        });
+
+        Optional<ExampleServiceFactory> factory = serviceLoader.findFirst();
+        if (factory.isEmpty()) {
+            System.out.println("  ServiceLoader found no implementation.");
+            throw new IllegalStateException("No implementation of: " + ExampleServiceFactory.class.getSimpleName());
+        }
+
+        System.out.println("ExampleService.doIt():\n");
+        var service = factory.get().createExampleService("testing 123");
+        service.doIt();
+        
+        System.exit(0);
+    }
+    
+    
+    private static void printClassPathEntries() {
         System.out.println("Classpath Entries:");
         String classpath = System.getProperty("java.class.path");
         String[] classpathEntries = classpath.split(File.pathSeparator);
         for (String entry : classpathEntries) {
             System.out.println("  classpath::" + entry);
-        }
-        
+        }        
+    }
+
+    private static void printClassPath() {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         
         System.out.println("Class Path Resources:");
@@ -32,7 +62,10 @@ class CheckIt {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+    }
+    
+    private static void printResources() {
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
         System.out.println("Resource Loader Resources:");
         try {
@@ -64,27 +97,15 @@ class CheckIt {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        System.out.println("Load ExampleServiceFactory:");
-
-        ServiceLoader<ExampleServiceFactory> serviceLoader = ServiceLoader.load(ExampleServiceFactory.class);
-        serviceLoader.forEach(factory -> {
-            System.out.println("  Found Factory: " + factory.getClass().getName());
-        });
-
-        Optional<ExampleServiceFactory> factory = serviceLoader.findFirst();
-        if (factory.isEmpty()) {
-            System.out.println("  ServiceLoader found no implementation.");
-            throw new IllegalStateException("No implementation of: " + ExampleServiceFactory.class.getSimpleName());
-        }
-
-        System.out.println("ExampleService.doIt():\n");
-        var service = factory.get().createExampleService("testing 123");
-        service.doIt();
-        
-        System.exit(0);
     }
-
+    
+    private static void printModules() {
+	    System.out.println("Loaded Modules:");
+	    ModuleLayer.boot().modules().stream()
+	        .map(module -> "  module://" + module.getName())
+	        .forEach(System.out::println);
+    }
+    
     private static void listDirectoryContents(File dir, String prefix) {
         for (File file : dir.listFiles()) {
             if (file.isDirectory()) {

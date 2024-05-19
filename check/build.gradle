@@ -1,26 +1,51 @@
 
 plugins {
-    id 'java'
     id 'application'
 }
 
 group = 'com.cyster'
 version = '0.0.1-SNAPSHOT'
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     implementation project(':example')
 }
 
 application {
-    mainClassName = 'com.cyster.check.CheckIt'
+    mainClass = 'com.cyster.check.CheckIt'
 }
+
+//compileJava {
+//    doFirst {
+//        options.compilerArgs += [
+//            '--module-path', classpath.asPath
+//        ]
+//        classpath = files()
+//    }
+//}
 
 tasks.named('run', JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
-    main = 'com.cyster.check.CheckIt'
+    mainClass = 'com.cyster.check.CheckIt'
     jvmArgs = ['--module-path', sourceSets.main.runtimeClasspath.asPath, '--add-modules', 'com.cyster.example']
 }
+
+//task prepareModulePath {
+//    doLast {
+//        def modules = configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//        def modulePath = modules.collect { it.toString() }.join(':')
+//        project.ext.modulePath = modulePath
+//    }
+//}
+
+//tasks.named('run', JavaExec) {
+//    dependsOn prepareModulePath
+//    doFirst {
+//        jvmArgs = [
+//            '--module-path', project.ext.modulePath,
+//            '--add-modules', 'com.cyster.example'
+//        ]
+//    }
+//    classpath = sourceSets.main.runtimeClasspath
+//    main = 'com.cyster.check.CheckIt'
+//}
+

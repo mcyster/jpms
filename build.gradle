@@ -10,11 +10,17 @@ allprojects {
         mavenCentral()
     }
 
-//    java {
-//        modularity.inferModulePath = true
+    java {
+        modularity.inferModulePath = true
+        sourceCompatibility = JavaVersion.VERSION_17
+    }
+        
+//    compileJava {
+//        doFirst {
+//            options.compilerArgs += [
+//                    '--module-path', classpath.asPath
+//            ]
+//            classpath = files()
+//        }
 //    }
-
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
 }
-
