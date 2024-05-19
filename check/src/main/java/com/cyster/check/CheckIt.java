@@ -18,7 +18,7 @@ class CheckIt {
     	//printClassPath();
         //printResources();
         //printModules();
-        
+  
         System.out.println("Load ExampleServiceFactory:");
 
         ServiceLoader<ExampleServiceFactory> serviceLoader = ServiceLoader.load(ExampleServiceFactory.class);
@@ -35,6 +35,7 @@ class CheckIt {
         System.out.println("ExampleService.doIt():\n");
         var service = factory.get().createExampleService("testing 123");
         service.doIt();
+        
         
         System.exit(0);
     }
