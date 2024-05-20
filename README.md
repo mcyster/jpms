@@ -5,8 +5,8 @@ This repository has 2 java subprojects
   - a JPMS module
   - exposes a service factory
 - check
-  - get the ServiceFactory using java.util.SerivceLoad
-  - creates the service using the factory
+  - get the ServiceFactory using java.util.SerivceLoader
+  - creates the service using the loaded factory
   - invokes a method on the service to show its properly initialized
     
 # Development
