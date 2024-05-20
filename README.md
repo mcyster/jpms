@@ -17,5 +17,6 @@ Build everything:
 ```
 
 ## References
+- https://docs.gradle.org/current/samples/sample_java_modules_multi_project.html
 - https://github.com/java9-modularity/gradle-modules-plugin
 
