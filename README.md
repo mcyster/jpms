@@ -16,6 +16,11 @@ Build everything:
 ./gradlew
 ```
 
+
+## Todo
+
+Money Patch Module to allow testing
+
 ## References
 - https://docs.gradle.org/current/samples/sample_java_modules_multi_project.html
 - https://github.com/java9-modularity/gradle-modules-plugin
