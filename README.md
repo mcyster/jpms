@@ -27,5 +27,6 @@ Money Patch Module to allow testing
 - https://github.com/java9-modularity/gradle-modules-plugin
 - https://docs.gradle.org/current/javadoc/org/gradle/api/jvm/package-summary.html
 - https://alexkudlick.com/blog/building-modular-java-applications-with-gradle
+  - https://github.com/zyxist/chainsaw
 
 
