@@ -28,5 +28,7 @@ Money Patch Module to allow testing
 - https://docs.gradle.org/current/javadoc/org/gradle/api/jvm/package-summary.html
 - https://alexkudlick.com/blog/building-modular-java-applications-with-gradle
   - https://github.com/zyxist/chainsaw
+- https://github.com/baumgarb/javalin-with-jpms-and-gradle
+  - simple code base that uses modules
 
 
