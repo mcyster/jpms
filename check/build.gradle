@@ -11,6 +11,7 @@ dependencies {
 
 application {
     mainClass = 'com.cyster.check.CheckIt'
+    mainModule = "com.cyster.check"
 }
 
 

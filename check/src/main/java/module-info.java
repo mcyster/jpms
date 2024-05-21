@@ -1,5 +1,5 @@
 
-module check {
+module com.cyster.check {
   requires com.cyster.example;
   
   exports com.cyster.check;
