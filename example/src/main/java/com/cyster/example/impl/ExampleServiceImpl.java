@@ -12,10 +12,10 @@ public class ExampleServiceImpl implements ExampleService {
         this.value = value;
     }
     
-    public void doIt() {
-    	System.out.println("DoIt: " + value);
+    public String getMessage() {
+    	return "ExampleService: " + value;
     }
-
+    
     public static class Factory implements ExampleServiceFactory {
         public Factory() {    
         }

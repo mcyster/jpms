@@ -1,7 +1,15 @@
 
 version = '0.0.1-SNAPSHOT'
 
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
 jar {
     archiveBaseName.set(project.group + "." + project.name)
     archiveVersion.set(project.version)
+}
+
+test {
+    useJUnitPlatform()
 }
