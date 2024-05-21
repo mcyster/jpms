@@ -13,35 +13,5 @@ application {
     mainClass = 'com.cyster.check.CheckIt'
 }
 
-// Currently have to explicitly add the module: "com.cyster.example" 
-// Feel like I shouldn't have to do this: https://github.com/java9-modularity/gradle-modules-plugin
-
-compileJava {
-    doFirst {
-        options.compilerArgs += [
-            '--module-path', configurations.compileClasspath.asPath,
-            '--add-modules', 'com.cyster.example'
-        ]
-        classpath = files()
-        println "Java compiler args: ${options.compilerArgs}"
-    }
-}
-
-task prepareModulePath {
-    doLast {
-        def modulePath = configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }.join(':')
-        project.ext.modulePath = modulePath
-    }
-}
-
-tasks.named('run', JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-    mainClass = 'com.cyster.check.CheckIt'
-    jvmArgs = [
-        '--module-path', sourceSets.main.runtimeClasspath.asPath, 
-        '--add-modules', 'com.cyster.example'
-    ]
-    println "JVM args: ${jvmArgs}"
-}
 
 
