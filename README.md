@@ -16,13 +16,14 @@ Build everything:
 ./gradlew
 ```
 
+# Notes
+Local projects should all have a module-info.java or no projects should have it. While java can support mixing worlds, 
+Gradle doesn't handle mixing local project types.
+
 ## References
-- https://docs.gradle.org/current/samples/sample_java_modules_multi_project.html
-- https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_modular
 - https://github.com/java9-modularity/gradle-modules-plugin
+- https://docs.gradle.org/current/samples/sample_java_modules_multi_project.html
 - https://docs.gradle.org/current/javadoc/org/gradle/api/jvm/package-summary.html
-- https://alexkudlick.com/blog/building-modular-java-applications-with-gradle
-  - https://github.com/zyxist/chainsaw
 - https://github.com/baumgarb/javalin-with-jpms-and-gradle
   - simple code base that uses modules
 - https://github.com/bredmold/jpms-junit-gradle
