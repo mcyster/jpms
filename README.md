@@ -30,5 +30,5 @@ Money Patch Module to allow testing
   - https://github.com/zyxist/chainsaw
 - https://github.com/baumgarb/javalin-with-jpms-and-gradle
   - simple code base that uses modules
-
+- https://github.com/bredmold/jpms-junit-gradle
 
