@@ -25,7 +25,6 @@ Money Patch Module to allow testing
 - https://docs.gradle.org/current/samples/sample_java_modules_multi_project.html
 - https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_modular
 - https://github.com/java9-modularity/gradle-modules-plugin
-- JPMS in Gradle 8.8
-  - https://docs.gradle.org/release-nightly/release-notes.html#building,-testing-and-running-java-modules
+- https://docs.gradle.org/current/javadoc/org/gradle/api/jvm/package-summary.html
 
 
