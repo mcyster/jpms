@@ -17,7 +17,7 @@ Build everything:
 ```
 
 # Notes
-Local projects should all have a module-info.java or no projects should have it. While java can support mixing worlds, 
+Local projects should all have a module-info.java or no projects should have it. While java can support mixing class paths and JPMS modules, 
 Gradle doesn't handle mixing local project types.
 
 ## References
