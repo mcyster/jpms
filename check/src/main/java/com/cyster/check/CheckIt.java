@@ -9,13 +9,9 @@ class CheckIt {
     public static void main(String[] args) {
         printModules();
   
-        System.out.println("Load ExampleServiceFactory:");
+        System.out.println("Load ExampleServiceFactory");
 
         ServiceLoader<ExampleServiceFactory> serviceLoader = ServiceLoader.load(ExampleServiceFactory.class);
-        serviceLoader.forEach(factory -> {
-            System.out.println("  Found Factory: " + factory.getClass().getName());
-        });
-
         Optional<ExampleServiceFactory> factory = serviceLoader.findFirst();
         if (factory.isEmpty()) {
             System.out.println("  ServiceLoader found no implementation.");

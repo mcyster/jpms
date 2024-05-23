@@ -1,8 +1,7 @@
 
 module com.cyster.check {
-  requires com.cyster.example;
+    requires com.cyster.example;
   
-  exports com.cyster.check;
-  uses com.cyster.example.service.ExampleServiceFactory;
+    uses com.cyster.example.service.ExampleServiceFactory;
 }
 
